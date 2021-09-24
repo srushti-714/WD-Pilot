@@ -14,20 +14,8 @@
     "AzurePassword": {
       "value": "GET-AZUSER-PASSWORD"
     },
-    "ODLID": {
-      "value": "GET-ODL-ID"
-    },
     "DeploymentID": {
       "value": "GET-DEPLOYMENT-ID"
-    },
-    "InstallCloudLabsShadow": {
-      "value": "yes"
-    },
-    "trainerUserName": {
-      "value": "trainer"
-    },
-    "trainerUserPassword": {
-      "value": "Password.1!!"
     }
   }
 }

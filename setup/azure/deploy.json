@@ -14,31 +14,12 @@
         "AzurePassword": {
             "type": "SecureString"
         },
-        "ODLID": {
-            "type": "String"
-        },
         "DeploymentID": {
-            "type": "String"
-        },
-        "InstallCloudLabsShadow": {
-            "defaultValue": "yes",
-            "allowedValues": [
-                "yes",
-                "no"
-            ],
-            "type": "String"
-        },
-        "trainerUserName": {
-            "type": "String"
-        },
-        "trainerUserPassword": {
             "type": "String"
         }
     },
   "variables": {
-    "cloudlabsCommon": "[concat(' -AzureUserName ', parameters('AzureUserName'), ' -AzurePassword ', parameters('AzurePassword'), ' -AzureTenantID ', variables('AzureTenantID'), ' -AzureSubscriptionID ', variables('AzureSubscriptionID'), ' -ODLID ', parameters('ODLID'), ' -DeploymentID ', parameters('DeploymentID'),' -InstallCloudLabsShadow ', parameters('InstallCloudLabsShadow'))]",
-    "Enable-CloudLabsEmbeddedShadow": "[concat(' -vmAdminUsername ', parameters('adminUsername'), ' -trainerUserName ', parameters('trainerUserName'), ' -trainerUserPassword ', parameters('trainerUserPassword'))]",
-    "AzureSubscriptionID": "[subscription().subscriptionId]",
+     "AzureSubscriptionID": "[subscription().subscriptionId]",
     "AzureTenantID": "[subscription().tenantId]",
     "rgName": "[resourceGroup().name]",
     "addressPrefix": "10.0.0.0/16",
@@ -245,11 +226,11 @@
     "outputs": {
         "VM Admin Username": {
             "type": "String",
-            "value": "[parameters('adminUsername')]"
+            "value": " wandisco"
         },
         "VM Admin Password": {
             "type": "String",
-            "value": "[parameters('adminPassword')]"
+            "value": "Wandisco123!"
         },
         "VM DNS Name": {
             "type": "String",

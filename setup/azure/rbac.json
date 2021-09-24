@@ -2,7 +2,7 @@
   "Name": "CloudLabs WD-Pilot - RBAC",
   "Id": null,
   "IsCustom": true,
-  "Description": "CloudLabs WD Pilot Custom Role.",
+  "Description": "CloudLabs WD Pilot Custom Role",
   "Actions": [
     "Microsoft.Authorization/*/read",
     "Microsoft.Authorization/roleAssignments/write",  

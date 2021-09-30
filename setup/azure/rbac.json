@@ -12,8 +12,7 @@
     "Microsoft.Storage/storageAccounts/*",
     "Microsoft.Compute/virtualMachines/*",
     "Microsoft.Databricks/workspaces/*",
-    "Wandisco.Fusion/fusionGroups/*",
-    "Microsoft.ManagedServices/registrationDefinition/*"
+    "Wandisco.Fusion/fusionGroups/*"
 
   ],
   "NotActions": [

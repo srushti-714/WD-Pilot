@@ -217,6 +217,19 @@
               "destinationAddressPrefix": "*",
               "destinationPortRange": "22"
             }
+          },
+             {
+            "name": "Port_8080",
+            "properties": {
+              "priority": 120,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "8080"
+            }
           }
         ]
       }

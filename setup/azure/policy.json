@@ -13,6 +13,16 @@
               "in": [
                 "Microsoft.Storage/storageAccounts"
               ]
+            },
+            {
+              "field": "type",
+              "like": "Wandisco.Fusion/fusionGroups/*"
+            },
+            {
+              "field": "type",
+              "in": [
+                "Wandisco.Fusion/fusionGroups"
+              ]
             }
           ]
         }

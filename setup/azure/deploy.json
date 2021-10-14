@@ -216,7 +216,7 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/azure/scripts/script.sh"
+            "https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/azure/scripts/script.sh"
           ],
           "commandToExecute": "[concat(variables('customScriptCommand'),' ',variables('scriptName'),variables('scriptClose'))]"
         }

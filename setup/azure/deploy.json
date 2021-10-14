@@ -314,6 +314,14 @@
         "VM DNS Name": {
             "type": "String",
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn]"
+        },
+        "Hue Server URL": {
+            "type": "String",
+            "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn, ':8000')]"
+        },
+        "Ambari Server URL": {
+            "type": "String",
+            "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn, ':8080')]"
         }
     }
 }

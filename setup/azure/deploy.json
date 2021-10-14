@@ -40,7 +40,10 @@
     "pricingTier": "Standard",
     "managedResourceGroupId": "[concat(subscription().id, '/resourceGroups/', variables('managedResourceGroupName'))]",
     "managedResourceGroupName": "[concat('databricks-rg-', variables('resourceNamePrefix'), '-', parameters('deploymentId'))]",
-    "resourceNamePrefix": "WANdisco"
+    "resourceNamePrefix": "WANdisco",
+    "scriptName": "script.sh",
+    "customScriptCommand": "su -c'sh ",
+    "scriptClose": "'",
   },
   "resources": [
     {
@@ -198,6 +201,27 @@
         }
       }
     },
+     {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2015-06-15",
+      "name": "[concat(variables('vmName'),'/mycustomscriptextension')]",
+      "location": "[variables('location')]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/',variables('vmName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/azure/scripts/script.sh"
+          ],
+          "commandToExecute": "[concat(variables('customScriptCommand'),' ',variables('scriptName'),variables('scriptClose'))]"
+        }
+      }
+    },   
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2017-06-01",
@@ -229,6 +253,19 @@
               "sourcePortRange": "*",
               "destinationAddressPrefix": "*",
               "destinationPortRange": "8080"
+            }
+          },
+             {
+            "name": "Port_8000",
+            "properties": {
+              "priority": 130,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "8000"
             }
           }
         ]
@@ -277,6 +314,14 @@
         "VM DNS Name": {
             "type": "String",
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn]"
+        },
+        "Hue Server URL": {
+            "type": "String",
+            "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn, ':8000')]"
+        },
+        "Ambari Server URL": {
+            "type": "String",
+            "value": "[concat('http://', reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))).dnsSettings.fqdn, ':8080')]"
         }
     }
 }

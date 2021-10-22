@@ -115,17 +115,6 @@ echo '
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
 
 chown -R hdoop /home/hdoop/hadoop-3.2.2
-su - hdoop
-
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys
-source .bashrc
-echo -e 'Y' | hdfs namenode -format
-
-
-
-/home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
-/home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh
+su - hdoop -c "cd /home/hdoop && ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 0600 ~/.ssh/authorized_keys"
+su - hdoop -c "cd /home/hdoop && source .bashrc && echo -e 'Y' | hdfs namenode -format && /home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh  && /home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh"
 exit

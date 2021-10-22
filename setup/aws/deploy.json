@@ -177,7 +177,11 @@
                                "\n",
                                "sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config",
                                "\n",
-                               "sudo service sshd restart"
+                               "sudo service sshd restart",
+                               "\n",
+                               "sudo wget https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/aws/scripts/script.sh",
+                               "\n",
+                               "sh script.sh"
                            ]
                        ]
                    }

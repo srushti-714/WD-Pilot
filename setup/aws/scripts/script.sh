@@ -16,7 +16,7 @@ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
 cd /home/hdoop
-wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop 2>tmp.txt
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop 2>tmplog.txt
 cd /home/hdoop
 tar xzf hadoop-3.2.2.tar.gz
 
@@ -41,8 +41,8 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 source /home/hdoop/.bashrc
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hadoop-env.sh
-
-head -n -1 /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml
+cd /home/hdoop
+head -n -1 hadoop-3.2.2/etc/hadoop/core-site.xml > tmp.txt && mv tmp.txt hadoop-3.2.2/etc/hadoop/core-site.xml
 
 
 #Edit core-site.xml file

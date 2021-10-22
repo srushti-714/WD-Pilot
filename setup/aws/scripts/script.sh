@@ -15,8 +15,9 @@ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
-
-wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz
+cd /home/hdoop
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop 2>tmp.txt
+cd /home/hdoop
 tar xzf hadoop-3.2.2.tar.gz
 
 exit

@@ -6,21 +6,16 @@ java -version
 javac -version
 sudo apt install openssh-server openssh-client -y
 sudo echo -e 'Password.1!!\nPassword.1!!' | adduser hdoop
-su - hdoop
+
+cd /home/hdoop
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop 2>tmplog.txt
+
+tar xzf hadoop-3.2.2.tar.gz
+
 mkdir tmpdata
 mkdir /home/hdoop/dfsdata/namenode -p
 mkdir /home/hdoop/dfsdata/datanode -p
-
-ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 0600 ~/.ssh/authorized_keys
-cd /home/hdoop
-wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop 2>tmplog.txt
-cd /home/hdoop
-tar xzf hadoop-3.2.2.tar.gz
-
-exit
+chown -R hdoop /home/hdoop/tmpdata
 chown -R hdoop /home/hdoop/dfsdata
 chown -R hdoop /home/hdoop/tmpdata
 
@@ -120,6 +115,11 @@ echo '
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
 
 su - hdoop
+
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
 source .bashrc
 echo -e 'Y' | hdfs namenode -format
 
@@ -127,3 +127,4 @@ echo -e 'Y' | hdfs namenode -format
 
 /home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
 /home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh
+exit

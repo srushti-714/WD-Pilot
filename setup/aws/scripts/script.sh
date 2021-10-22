@@ -114,6 +114,7 @@ echo '
 </configuration>
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
 
+chown -R hdoop /home/hdoop/hadoop-3.2.2
 su - hdoop
 
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa

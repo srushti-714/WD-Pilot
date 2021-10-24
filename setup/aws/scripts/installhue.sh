@@ -33,9 +33,9 @@ sudo apt install make
 git cherry-pick 7a9100d4a7f38eaef7bd4bd7c715ac1f24a969a8
 git cherry-pick e67c1105b85b815346758ef1b9cd714dd91d7ea3
 git clean -fdx
-make install 2> tmplog005.txt
+make install 2> /home/ubuntu/tmplog005.txt
 
 chown -R hue:hdoop /usr/share/hue
-make apps 2> tmplog006.txt
+make apps 2> /home/ubuntu/tmplog006.txt
 # Run the hue server in the background and make it available on port 8000
 ./build/env/bin/hue runserver 0.0.0.0:8000 &  2> tmplog007.txt

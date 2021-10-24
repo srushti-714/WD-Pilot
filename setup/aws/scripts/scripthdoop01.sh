@@ -18,10 +18,10 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
-' >> /home/hdoop/.bashrc
+' >> .bashrc
 
 
-source /home/hdoop/.bashrc
+source .bashrc
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hadoop-env.sh
 cd /home/hdoop

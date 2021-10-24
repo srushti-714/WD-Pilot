@@ -141,7 +141,25 @@
                        "CidrIp": "0.0.0.0/0",
                        "FromPort": 8081,
                        "ToPort": 8081
-                   }
+                   },
+                   {
+                    "IpProtocol": "tcp",
+                    "CidrIp": "0.0.0.0/0",
+                    "FromPort": 8088,
+                    "ToPort": 8088
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "CidrIp": "0.0.0.0/0",
+                    "FromPort": 9870,
+                    "ToPort": 9870
+                },
+                {
+                    "IpProtocol": "tcp",
+                    "CidrIp": "0.0.0.0/0",
+                    "FromPort": 9864,
+                    "ToPort": 9864
+                }
                ]
            }
        },
@@ -181,7 +199,31 @@
                                "\n",
                                "sudo wget https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/aws/scripts/script.sh",
                                "\n",
-                               "sh script.sh"
+                               "chmod +x script.sh",
+                               "\n",
+                               "sh script.sh 2>/home/ubuntu/tmplog001.txt",
+                               "\n",
+                               "cd /home/hdoop",
+                               "\n",
+                               "sudo wget https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/aws/scripts/scripthdoop01.sh",
+                               "\n",
+                               "chmod +x scripthdoop01.sh",
+                               "\n",
+                               "su - hdoop -c'sh scripthdoop01.sh' 2>/home/ubuntu/tmplog002.txt",
+                               "\n",
+                               "chown -R hdoop /home/hdoop/hadoop-3.2.2",
+                               "\n",
+                               "sudo wget https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/aws/scripts/scripthdoop02.sh",
+                               "\n",
+                               "chmod +x scripthdoop02.sh",
+                               "\n",
+                               "su - hdoop -c'sh scripthdoop02.sh' 2>/home/ubuntu/tmplog003.txt",
+                               "\n",
+                               "sudo wget https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/main/setup/aws/scripts/installhue.sh",
+                               "\n",
+                               "chmod +x installhue.sh",
+                               "\n",
+                               "sh installhue.sh"                                
                            ]
                        ]
                    }
@@ -208,7 +250,7 @@
                        {
                            "Fn::GetAtt": [
                                "EC2Instance",
-                               "PublicIp"
+                               "PublicDnsName"
                            ]
                        },
                            ":8081"
@@ -216,6 +258,42 @@
                    ]
            }
        },
+       "HadoopUI": {
+        "Description": "URL of the website",
+        "Value": {
+            "Fn::Join": [
+                "",
+                [
+                    "http://",
+                    {
+                        "Fn::GetAtt": [
+                            "EC2Instance",
+                            "PublicDnsName"
+                        ]
+                    },
+                        ":9870"
+                ]
+                ]
+        }
+    },
+    "HueServer": {
+     "Description": "URL of the website",
+     "Value": {
+         "Fn::Join": [
+             "",
+             [
+                 "http://",
+                 {
+                     "Fn::GetAtt": [
+                         "EC2Instance",
+                         "PublicDnsName"
+                     ]
+                 },
+                     ":8000"
+             ]
+             ]
+     }
+ },
        "VMDNSName": {
            "Description": "Public DNSName of the newly created EC2 instance",
            "Value": {

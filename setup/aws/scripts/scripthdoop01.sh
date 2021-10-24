@@ -21,7 +21,7 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 ' >> .bashrc
 
 
-source .bashrc
+#source .bashrc
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hadoop-env.sh
 cd /home/hdoop

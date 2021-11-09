@@ -2,7 +2,7 @@
 
 cd /home/hdoop
 tar xzf hadoop-3.2.2.tar.gz
-
+tar xzf apache-hive-3.1.2-bin.tar.gz
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 0600 ~/.ssh/authorized_keys
@@ -18,6 +18,8 @@ export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export HIVE_HOME="/home/hdoop/apache-hive-3.1.2-bin"
+export PATH=$PATH:$HIVE_HOME/bin
 ' >> .bashrc
 
 
@@ -37,6 +39,22 @@ echo '
 <property>
   <name>fs.default.name</name>
   <value>hdfs://127.0.0.1:9000</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hdoop.groups</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hdoop.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.server.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.server.groups</name>
+  <value>*</value>
 </property>
 </configuration> 
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml

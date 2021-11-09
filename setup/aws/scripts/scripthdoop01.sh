@@ -56,6 +56,14 @@ echo '
   <name>hadoop.proxyuser.server.groups</name>
   <value>*</value>
 </property>
+<property>
+  <name>hadoop.proxyuser.hue.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hue.groups</name>
+  <value>*</value>
+</property>
 </configuration> 
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml
 
@@ -75,6 +83,10 @@ echo '
 <property>
   <name>dfs.replication</name>
   <value>1</value>
+</property>
+<property>
+  <name>dfs.webhdfs.enabled</name>
+  <value>true</value>
 </property>
 </configuration>
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml

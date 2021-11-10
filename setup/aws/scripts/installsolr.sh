@@ -5,3 +5,7 @@ curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER
 tar xvf solr-${LATEST_VER}.tgz
 cd solr-${LATEST_VER}/bin/
 sudo ./install_solr_service.sh ~/solr-${LATEST_VER}.tgz & 2 > /home/ubuntu/tmplog008.txt
+
+# Run the hue server in the background and make it available on port 8000
+cd /usr/share/hue
+./build/env/bin/hue runserver 0.0.0.0:8000 &  2> /home/ubuntu/tmplog007.txt

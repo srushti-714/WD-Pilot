@@ -41,6 +41,5 @@ sed -i 's/## webhdfs_url=http:/webhdfs_url=http:/' /usr/share/hue/desktop/conf/p
 sed -i 's/localhost:50070/localhost:9870/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 sed -i 's/## default_hdfs_superuser=hdfs/default_hdfs_superuser=hdoop/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
-# Run the hue server in the background and make it available on port 8000
-./build/env/bin/hue runserver 0.0.0.0:8000 &  2> /home/ubuntu/tmplog007.txt
+
 

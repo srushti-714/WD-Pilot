@@ -269,21 +269,6 @@
       "Description": "Password of the newly created EC2 instance",
       "Value": "Password.1!!"
     },
-    "WANDiscoWebpageURL": {
-      "Description": "URL of the website",
-      "Value": {
-        "Fn::Join": [
-          "",
-          [
-            "http://",
-            {
-              "Fn::GetAtt": ["EC2Instance", "PublicDnsName"]
-            },
-            ":8081"
-          ]
-        ]
-      }
-    },
     "HadoopUI": {
       "Description": "URL of the website",
       "Value": {

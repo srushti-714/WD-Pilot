@@ -42,10 +42,10 @@ sed -i 's/localhost:50070/localhost:9870/' /usr/share/hue/desktop/conf/pseudo-di
 sed -i 's/## default_hdfs_superuser=hdfs/default_hdfs_superuser=hdoop/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
 # Run the hue server in the background and make it available on port 8000
-./build/env/bin/hue runserver 0.0.0.0:8000 &  2> tmplog007.txt
+./build/env/bin/hue runserver 0.0.0.0:8000 &  2> /home/ubuntu/tmplog007.txt
 export LATEST_VER="8.10.1"
 cd
 curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER}.tgz
 tar xvf solr-${LATEST_VER}.tgz
 cd solr-${LATEST_VER}/bin/
-sudo ./install_solr_service.sh ~/solr-${LATEST_VER}.tgz & 2 > tmplog008.txt
+sudo ./install_solr_service.sh ~/solr-${LATEST_VER}.tgz & 2 > /home/ubuntu/tmplog008.txt

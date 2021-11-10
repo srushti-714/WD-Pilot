@@ -252,7 +252,7 @@
                 "\n",
                 "chmod +x installsolr.sh",
                 "\n",
-                "sh installsolr.sh"
+                "sh installsolr.sh 2>/home/ubuntu/tmplog009.txt"
               ]
             ]
           }

@@ -165,6 +165,12 @@
               "CidrIp": "0.0.0.0/0",
               "FromPort": 9000,
               "ToPort": 9000
+            },
+            {
+              "IpProtocol": "tcp",
+              "CidrIp": "0.0.0.0/0",
+              "FromPort": 8983,
+              "ToPort": 8983
             }
           ]
         }

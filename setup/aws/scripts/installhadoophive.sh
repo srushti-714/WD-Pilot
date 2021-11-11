@@ -30,6 +30,9 @@ hadoop fs -chmod g+w /tmp
 hadoop fs -chmod g+w /user/hive/warehouse
 hadoop fs -chmod g+w /
 
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.27-1ubuntu18.04_all.deb
+dpkg -i mysql-connector-java_8.0.27-1ubuntu18.04_all.deb
+cp /usr/share/java/mysql-connector-java-8.0.27.jar /usr/share/java/mysql-connector-java.jar
 ln -s /usr/share/java/mysql-connector-java.jar /home/hdoop/apache-hive-3.1.2-bin/lib/mysql-connector-java.jar
 rm /home/hdoop/apache-hive-3.1.2-bin/lib/guava*
 cp /home/hdoop/hadoop-3.2.2/share/hadoop/common/lib/guava* /home/hdoop/apache-hive-3.1.2-bin/lib/

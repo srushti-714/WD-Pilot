@@ -441,7 +441,7 @@
   </property>
   <property>
     <name>hive.metastore.db.type</name>
-    <value>DERBY</value>
+    <value>MYSQL</value>
     <description>
       Expects one of [derby, oracle, mysql, mssql, postgres].
       Type of database used by the metastore. Information schema &amp; JDBCStorageHandler depend on it.
@@ -566,7 +566,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionPassword</name>
-    <value>mine</value>
+    <value>Password.1!!</value>
     <description>password to use against metastore database</description>
   </property>
   <property>
@@ -795,7 +795,7 @@
   </property>
   <property>
     <name>hive.metastore.schema.verification</name>
-    <value>true</value>
+    <value>false</value>
     <description>
       Enforce metastore schema version consistency.
       True: Verify that version information stored in is compatible with one from Hive jars.  Also disable automatic
@@ -1099,7 +1099,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionDriverName</name>
-    <value>org.apache.derby.jdbc.EmbeddedDriver</value>
+    <value>com.mysql.jdbc.Driver</value>
     <description>Driver class name for a JDBC metastore</description>
   </property>
   <property>
@@ -1124,7 +1124,7 @@
   </property>
   <property>
     <name>javax.jdo.option.ConnectionUserName</name>
-    <value>APP</value>
+    <value>hue</value>
     <description>Username to use against metastore database</description>
   </property>
   <property>

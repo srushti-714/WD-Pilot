@@ -113,7 +113,7 @@ echo '
 </property>
 <property>
 	<name>mapreduce.map.memory.mb</name>
-	<value>2048</value>
+	<value>6096</value>
 </property>
 <property>
 	<name>mapreduce.reduce.memory.mb</name>

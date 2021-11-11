@@ -2,6 +2,7 @@
 
 sudo apt update
 sudo apt install openjdk-8-jdk -y
+
 java -version
 javac -version
 sudo apt install openssh-server openssh-client -y
@@ -18,5 +19,13 @@ chown -R hdoop /home/hdoop/tmpdata
 chown -R hdoop /home/hdoop/dfsdata
 chown -R hdoop /home/hdoop/tmpdata
 
+## Installing and Configuring MySQL
 
+sudo apt-get install mysql-server   -y
+sudo service mysql start
+sudo echo -e 'N\nPassword.1!!\nPassword.1!!\nN\nN\nN\nY' | /usr/bin/mysql_secure_installation
 
+mysql -u root -pPassword.1!! <<EOF
+CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'Password.1!!';
+EOF

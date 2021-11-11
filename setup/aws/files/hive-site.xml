@@ -3065,7 +3065,7 @@
   </property>
   <property>
     <name>hive.support.concurrency</name>
-    <value>false</value>
+    <value>true</value>
     <description>
       Whether Hive supports concurrency control or not. 
       A ZooKeeper instance must be up and running when using zookeeper Hive lock manager 

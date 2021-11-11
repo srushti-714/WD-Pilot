@@ -99,6 +99,34 @@ echo '
   <name>mapreduce.framework.name</name> 
   <value>yarn</value> 
 </property> 
+<property>
+	<name>yarn.app.mapreduce.am.env</name>
+	<value>HADOOP_MAPRED_HOME=/home/hdoop/hadoop-3.2.2</value>
+</property>
+<property>
+	<name>mapreduce.map.env</name>
+	<value>HADOOP_MAPRED_HOME=/home/hdoop/hadoop-3.2.2</value>
+</property>
+<property>
+	<name>mapreduce.reduce.env</name>
+	<value>HADOOP_MAPRED_HOME=/home/hdoop/hadoop-3.2.2</value>
+</property>
+<property>
+	<name>mapreduce.map.memory.mb</name>
+	<value>2048</value>
+</property>
+<property>
+	<name>mapreduce.reduce.memory.mb</name>
+	<value>6096</value>
+</property>
+<property>
+	<name>mapreduce.map.java.opts</name>
+	<value>-Xmx1638m</value>
+</property>
+<property>
+	<name>mapreduce.reduce.java.opts</name>
+	<value>-Xmx3278m</value>
+</property>
 </configuration> 
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/mapred-site.xml
 

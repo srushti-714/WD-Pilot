@@ -29,6 +29,10 @@ hadoop fs -mkdir /user/hive/warehouse
 hadoop fs -chmod g+w /tmp
 hadoop fs -chmod g+w /user/hive/warehouse
 hadoop fs -chmod g+w /
+cd /home/hdoop/apache-hive-3.1.2-bin/conf
+cp hive-env.sh.template hive-env.sh
+wget -O hive-site.xml https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/hive-site.xml
+echo "export HADOOP_HOME=/home/hdoop/hadoop-3.2.2" >> hive-env.sh
 cd /home/hdoop/apache-hive-3.1.2-bin
 bin/schematool -dbType derby -initSchema
 bin/hiveserver2 &

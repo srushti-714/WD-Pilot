@@ -34,8 +34,8 @@ git cherry-pick 7a9100d4a7f38eaef7bd4bd7c715ac1f24a969a8
 git cherry-pick e67c1105b85b815346758ef1b9cd714dd91d7ea3
 git clean -fdx
 make install 2> /home/ubuntu/tmplog005.txt
-rm /usr/share/hue/desktop/conf/pseudo-distributed.ini
-wget -P /usr/share/hue/desktop/conf/ -O pseudo-distributed.ini https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/pseudo-distributed.ini
+#rm /usr/share/hue/desktop/conf/pseudo-distributed.ini
+#wget -P /usr/share/hue/desktop/conf/ -O pseudo-distributed.ini https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/pseudo-distributed.ini
 
 chown -R hue:hdoop /usr/share/hue
 

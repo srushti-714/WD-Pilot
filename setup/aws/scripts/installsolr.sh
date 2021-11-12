@@ -8,4 +8,5 @@ sudo ./install_solr_service.sh /usr/share/hue/solr-${LATEST_VER}.tgz &
 
 # Run the hue server in the background and make it available on port 8000
 cd /usr/share/hue
+chown -R hue:hdoop /usr/share/hue
 ./build/env/bin/hue runserver 0.0.0.0:8000 &  2> /home/ubuntu/tmplog007.txt

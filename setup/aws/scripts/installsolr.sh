@@ -1,7 +1,7 @@
 #!/bin/bash
 export LATEST_VER="8.10.1"
 cd /usr/share/hue
-make apps 2> /home/ubuntu/tmplog006.txt
+#make apps 2> /home/ubuntu/tmplog006.txt
 curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER}.tgz
 tar xvf solr-${LATEST_VER}.tgz
 cd solr-${LATEST_VER}/bin/

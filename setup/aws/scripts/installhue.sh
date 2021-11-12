@@ -43,3 +43,4 @@ make apps 2> /home/ubuntu/tmplog006.txt
 wget -P /usr/share/hue/desktop/conf/ -O pseudo-distributed.ini https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/pseudo-distributed.ini
 
 
+chown -R hue:hdoop /usr/share/hue

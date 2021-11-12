@@ -34,13 +34,13 @@ git cherry-pick 7a9100d4a7f38eaef7bd4bd7c715ac1f24a969a8
 git cherry-pick e67c1105b85b815346758ef1b9cd714dd91d7ea3
 git clean -fdx
 make install 2> /home/ubuntu/tmplog005.txt
+wget -P /usr/share/hue/desktop/conf/ -O pseudo-distributed.ini https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/pseudo-distributed.ini
 
 chown -R hue:hdoop /usr/share/hue
 make apps 2> /home/ubuntu/tmplog006.txt
 # sed -i 's/## webhdfs_url=http:/webhdfs_url=http:/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 # sed -i 's/localhost:50070/localhost:9870/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 # sed -i 's/## default_hdfs_superuser=hdfs/default_hdfs_superuser=hdoop/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-wget -P /usr/share/hue/desktop/conf/ -O pseudo-distributed.ini https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/pseudo-distributed.ini
 
 
-chown -R hue:hdoop /usr/share/hue
+

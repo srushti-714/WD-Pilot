@@ -45,12 +45,7 @@ make apps 2> /home/ubuntu/tmplog006.txt
  sed -i 's/localhost:50070/localhost:9870/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i 's/## default_hdfs_superuser=hdfs/default_hdfs_superuser=hdoop/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 # sed -i 's///' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## [[[mysql]]]/[[[mysql]]]/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## name=mysqldb/name=hue/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## engine=mysql/engine=mysql/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## host=localhost/host=localhost/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## port=3306/port=3306/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## user=example/user=hue/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## password=example/password=Password.1!!/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql\nhost=localhost\nport=3306\nuser=hue\npassword=Password.1!!/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+
 
 

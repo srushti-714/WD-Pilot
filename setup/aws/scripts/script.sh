@@ -29,3 +29,7 @@ mysql -u root -pPassword.1!! <<EOF
 CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'Password.1!!';
 EOF
+
+wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.27-1ubuntu18.04_all.deb
+sudo dpkg -i mysql-connector-java_8.0.27-1ubuntu18.04_all.deb
+cp /usr/share/java/mysql-connector-java-8.0.27.jar /usr/share/java/mysql-connector-java.jar

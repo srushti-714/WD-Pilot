@@ -441,7 +441,7 @@
   </property>
   <property>
     <name>hive.metastore.db.type</name>
-    <value>MYSQL</value>
+    <value>mysql</value>
     <description>
       Expects one of [derby, oracle, mysql, mssql, postgres].
       Type of database used by the metastore. Information schema &amp; JDBCStorageHandler depend on it.

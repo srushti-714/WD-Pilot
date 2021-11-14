@@ -73,7 +73,7 @@ head -n -1 /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml > tmp.txt && mv tmp
 
 echo '
 <property>
-  <name>dfs.data.dir</name>
+  <name>dfs.name.dir</name>
   <value>/home/hdoop/dfsdata/namenode</value>
 </property>
 <property>

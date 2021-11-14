@@ -35,10 +35,6 @@ ln -s /usr/share/java/mysql-connector-java.jar /home/hdoop/apache-hive-3.1.2-bin
 rm /home/hdoop/apache-hive-3.1.2-bin/lib/guava*
 cp /home/hdoop/hadoop-3.2.2/share/hadoop/common/lib/guava* /home/hdoop/apache-hive-3.1.2-bin/lib/
 
-cd /home/hdoop/apache-hive-3.1.2-bin/conf
-cp hive-env.sh.template hive-env.sh
-wget -O hive-site.xml https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/hive-site.xml
-echo "export HADOOP_HOME=/home/hdoop/hadoop-3.2.2" >> hive-env.sh
 cd /home/hdoop/apache-hive-3.1.2-bin
 bin/schematool -dbType mysql -initSchema
 bin/hiveserver2 &

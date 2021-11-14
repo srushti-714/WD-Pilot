@@ -159,3 +159,50 @@ echo '
 </configuration>
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
 
+### Hive configuration
+cd /home/hdoop/apache-hive-3.1.2-bin/conf
+cp hive-env.sh.template hive-env.sh
+echo "export HADOOP_HOME=/home/hdoop/hadoop-3.2.2" >> hive-env.sh
+
+#wget -O hive-site-tmp.xml https://raw.githubusercontent.com/CloudLabs-Samples/WD-Pilot/dev/setup/aws/files/hive-site.xml
+
+cp hive-default.xml.template hive-site.xml
+#sed '1 a #This is just a commented line' sedtest.txt
+
+#sed '85 a       </description>' hive-site.xml
+sed -i '143 c\
+    <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml
+
+sed -i '148 c\
+    <value>/tmp/mydir/${hive.session.id}_resources</value>' hive-site.xml
+
+sed -i '444 c\
+    <value>mysql</value>' hive-site.xml
+
+sed -i '569 c\
+    <value>Password.1!!</value>' hive-site.xml
+
+sed -i '584 c\
+    <value>jdbc:mysql://localhost/hue?createDatabaseIfNotExist=true&amp;useSSL=false</value>' hive-site.xml
+    
+sed -i '798 c\
+    <value>false</value>' hive-site.xml
+    
+sed -i '1102 c\
+    <value>com.mysql.jdbc.Driver</value>' hive-site.xml
+    
+sed -i '1127 c\
+	    <value>hue</value>' hive-site.xml
+    
+sed -i '1846 c\
+    <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml
+
+sed -i '3068 c\
+    <value>true</value>' hive-site.xml
+
+sed -i '3215d' hive-site.xml
+sed -i '3215d' hive-site.xml
+
+sed -i '4402 c\
+    <value>/tmp/mydir/${system:user.name}/operation_logs</value>' hive-site.xml
+

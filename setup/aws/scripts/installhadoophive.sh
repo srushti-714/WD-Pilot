@@ -37,6 +37,6 @@ cp /home/hdoop/hadoop-3.2.2/share/hadoop/common/lib/guava* /home/hdoop/apache-hi
 
 cd /home/hdoop/apache-hive-3.1.2-bin
 bin/schematool -dbType mysql -initSchema
-bin/hiveserver2 &
+nohup bin/hiveserver2  > /dev/null 2>&1 &
 bin/beeline  jdbc:hive2://localhost:10000;transportMode=http
 echo "End"

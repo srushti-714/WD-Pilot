@@ -23,11 +23,14 @@ chown -R hdoop /home/hdoop/tmpdata
 
 sudo apt-get install mysql-server   -y
 sudo service mysql start
-sudo echo -e 'N\nPassword.1!!\nPassword.1!!\nN\nN\nN\nY' | /usr/bin/mysql_secure_installation
+sudo echo -e 'N\nsecure_pass\nsecure_pass\nN\nN\nN\nY' | /usr/bin/mysql_secure_installation
 
-mysql -u root -pPassword.1!! <<EOF
+mysql -u root -psecure_pass <<EOF
 CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'Password.1!!';
+CREATE USER 'admin'@'%' IDENTIFIED BY 'secure_pass';
+GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'secure_pass';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+FLUSH PRIVILEGES;
 EOF
 
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java_8.0.27-1ubuntu18.04_all.deb

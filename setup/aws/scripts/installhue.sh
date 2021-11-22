@@ -48,4 +48,6 @@ make apps 2> /home/ubuntu/tmplog006.txt
 sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql\nhost=127.0.0.1\nport=3306\nuser=admin\npassword=secure_pass/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
  sed -i 's/secret_key=/secret_key=122334fgasd/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1370 c\
+    use_sasl=true' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 

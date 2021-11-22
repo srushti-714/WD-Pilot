@@ -18,7 +18,7 @@ build/env/bin/pip install PyAthena
 build/env/bin/pip install snowflake-sqlalchemy
 build/env/bin/pip install sqlalchemy-solr
 nohup ./build/env/bin/hue runserver 0.0.0.0:8000   > /dev/null 2>/home/ubuntu/tmplog007.txt &
-source build/env/bin/activate
-hue syncdb --noinput
-hue migrate
+source ./build/env/bin/activate
+build/env/bin/hue syncdb --noinput
+build/env/bin/hue migrate
 deactivate

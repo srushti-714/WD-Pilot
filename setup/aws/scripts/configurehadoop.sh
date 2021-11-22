@@ -180,10 +180,10 @@ sed -i '444 c\
     <value>mysql</value>' hive-site.xml
 
 sed -i '569 c\
-    <value>Password.1!!</value>' hive-site.xml
+    <value>secure_pass</value>' hive-site.xml
 
 sed -i '584 c\
-    <value>jdbc:mysql://localhost/hue?createDatabaseIfNotExist=true&amp;useSSL=false</value>' hive-site.xml
+    <value>jdbc:mysql://127.0.0.1/hue?createDatabaseIfNotExist=true&amp;useSSL=false</value>' hive-site.xml
     
 sed -i '798 c\
     <value>false</value>' hive-site.xml
@@ -192,7 +192,7 @@ sed -i '1102 c\
     <value>com.mysql.jdbc.Driver</value>' hive-site.xml
     
 sed -i '1127 c\
-	    <value>hue</value>' hive-site.xml
+	    <value>admin</value>' hive-site.xml
     
 sed -i '1846 c\
     <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml

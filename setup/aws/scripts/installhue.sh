@@ -45,7 +45,7 @@ make apps 2> /home/ubuntu/tmplog006.txt
  sed -i 's/localhost:50070/localhost:9870/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i 's/## default_hdfs_superuser=hdfs/default_hdfs_superuser=hdoop/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 # sed -i 's///' /usr/share/hue/desktop/conf/pseudo-distributed.ini
-sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql\nhost=localhost\nport=3306\nuser=hue\npassword=Password.1!!/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql\nhost=127.0.0.1\nport=3306\nuser=admin\npassword=secure_pass/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
-
+ sed -i 's/secret_key=/secret_key=122334fgasd/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 

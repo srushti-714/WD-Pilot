@@ -180,7 +180,7 @@ sed -i '444 c\
     <value>mysql</value>' hive-site.xml
 
 sed -i '569 c\
-    <value>secure_pass</value>' hive-site.xml
+    <value>securepass</value>' hive-site.xml
 
 sed -i '584 c\
     <value>jdbc:mysql://127.0.0.1/hue?createDatabaseIfNotExist=true&amp;useSSL=false</value>' hive-site.xml

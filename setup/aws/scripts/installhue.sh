@@ -50,4 +50,35 @@ sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql
  sed -i 's/secret_key=/secret_key=122334fgasd/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1370 c\
     use_sasl=true' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '671 c\
+    host=127.0.0.1' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '672 c\
+    engine=mysql' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '673 c\
+    port=3306' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '674 c\
+    user=admin' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '675 c\
+    password=securepass' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '681 c\
+    name=hue' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1267 c\
+    hive_server_host=127.0.0.1' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1648 c\
+    solr_url=http://127.0.0.1:8983/solr/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1393 c\
+    enable_new_create_table=true' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1320 c\
+    hive_conf_dir=/home/hdoop/apache-hive-3.1.2-bin/conf' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '966 c\
+    [[[mysql]]]' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '967 c\
+    name=MySQL' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '968 c\
+    interface=sqlalchemy' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '969 c\
+    engine=mysql' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '970 c\
+    options={"url": "mysql://admin:securepass@127.0.0.1:3306/hue"}' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+
 

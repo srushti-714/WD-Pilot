@@ -30,6 +30,7 @@ CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
 CREATE USER 'admin'@'%' IDENTIFIED BY 'securepass';
 GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'securepass';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'hue'@'%';
 FLUSH PRIVILEGES;
 EOF
 

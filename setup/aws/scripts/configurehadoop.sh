@@ -21,7 +21,7 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 export HIVE_HOME="/home/hdoop/apache-hive-3.1.2-bin"
 export PATH=$PATH:$HIVE_HOME/bin
 export OOZIE_HOME=/home/hdoop/oozie-5.2.1/distro/target/oozie-5.2.1-distro/oozie-5.2.1
-export HBASE_HOME= /home/hdoop/hbase
+export HBASE_HOME=/home/hdoop/hbase
 export PATH=$PATH:$HBASE_HOME/bin
 export SPARK_HOME=/home/hdoop/spark
 export PIG_HOME=/home/hdoop/pig

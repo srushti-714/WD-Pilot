@@ -23,12 +23,12 @@ chown -R hdoop /home/hdoop/tmpdata
 
 sudo apt-get install mysql-server   -y
 sudo service mysql start
-sudo echo -e 'N\nsecure_pass\nsecure_pass\nN\nN\nN\nY' | /usr/bin/mysql_secure_installation
+sudo echo -e 'N\nsecurepass\nsecurepass\nN\nN\nN\nY' | /usr/bin/mysql_secure_installation
 
-mysql -u root -psecure_pass <<EOF
+mysql -u root -psecurepass <<EOF
 CREATE DATABASE hue DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-CREATE USER 'admin'@'%' IDENTIFIED BY 'secure_pass';
-GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'secure_pass';
+CREATE USER 'admin'@'%' IDENTIFIED BY 'securepass';
+GRANT ALL ON hue.* TO 'hue'@'%' IDENTIFIED BY 'securepass';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 EOF

@@ -1,5 +1,5 @@
 #!/bin/bash
-export LATEST_VER="8.10.1"
+export LATEST_VER="8.11.0"
 cd /usr/share/hue
 curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER}.tgz
 tar xvf solr-${LATEST_VER}.tgz

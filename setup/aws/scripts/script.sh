@@ -2,7 +2,7 @@
 
 sudo apt update
 sudo apt install openjdk-8-jdk -y
-
+sudo apt install unzip -y
 java -version
 javac -version
 sudo apt install openssh-server openssh-client -y

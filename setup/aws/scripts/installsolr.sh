@@ -31,6 +31,7 @@ nohup ./install_solr_service.sh /usr/share/hue/solr-${LATEST_VER}.tgz  > /dev/nu
 # Run the hue server in the background and make it available on port 8000
 cd /usr/share/hue
 chown -R hue:hdoop /usr/share/hue
+build/env/bin/pip install mysql-python
 #build/env/bin/pip install git+https://github.com/gethue/PyHive
 #build/env/bin/pip install thrift-sasl
 #build/env/bin/pip install pyodbc

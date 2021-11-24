@@ -20,6 +20,8 @@ export SPARK_HOME=/home/hdoop/spark
 export PIG_HOME=/home/hdoop/pig
 export PATH=$PATH:$PIG_HOME/bin
 export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
+export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP=true
+
 rm /home/hdoop/apache-hive-3.1.2-bin/lib/guava-19.0.jar
 cp /home/hdoop/hadoop-3.2.2/share/hadoop/hdfs/lib/guava-27.0-jre.jar /home/hdoop/apache-hive-3.1.2-bin/lib/
 #echo -e 'yes' | ssh localhost

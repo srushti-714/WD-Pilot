@@ -80,5 +80,9 @@ sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql
     engine=mysql' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '970 c\
     options={"url": "mysql://admin:securepass@127.0.0.1:3306/hue"}' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1366 c\
+    auth_username=admin' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1367 c\
+    auth_password=securepass' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
 

@@ -118,3 +118,6 @@ bin/schematool -dbType mysql -initSchema
 nohup bin/hiveserver2  > /dev/null 2>&1 &
 bin/beeline  jdbc:hive2://localhost:10000;transportMode=http
 echo "End"
+
+/home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
+/home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh

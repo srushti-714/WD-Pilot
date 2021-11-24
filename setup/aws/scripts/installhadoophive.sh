@@ -85,7 +85,7 @@ cp *.jar /home/hdoop/oozie-5.2.1/distro/target/oozie-5.2.1-distro/oozie-5.2.1/li
 export OOZIE_HOME=/home/hdoop/oozie-5.2.1/distro/target/oozie-5.2.1-distro/oozie-5.2.1
 
 cd /home/hdoop/oozie-5.2.1/distro/target/oozie-5.2.1-distro
-mv oozie-5.2.1 /home/hdoop
+mv oozie-5.2.1 /home/hdoop/oozie
 cd /home/hdoop/oozie
 rm lib/guava-11.0.2.jar
 ./bin/oozie-setup.sh

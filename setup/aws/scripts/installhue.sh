@@ -92,16 +92,16 @@ make apps 2> /home/ubuntu/tmplog006.txt
     enable_new_create_table=true' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1320 c\
     hive_conf_dir=/home/hdoop/apache-hive-3.1.2-bin/conf' /usr/share/hue/desktop/conf/pseudo-distributed.ini
- sed -i '966 c\
-    [[[mysql]]]' /usr/share/hue/desktop/conf/pseudo-distributed.ini
- sed -i '967 c\
-    name=MySQL' /usr/share/hue/desktop/conf/pseudo-distributed.ini
- sed -i '968 c\
-    interface=sqlalchemy' /usr/share/hue/desktop/conf/pseudo-distributed.ini
- sed -i '969 c\
-    engine=mysql' /usr/share/hue/desktop/conf/pseudo-distributed.ini
- sed -i '970 c\
-    options={"url": "mysql://admin:securepass@127.0.0.1:3306/hue"}' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ #sed -i '966 c\
+#    [[[mysql]]]' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ #sed -i '967 c\
+ #   name=MySQL' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+# sed -i '968 c\
+ #   interface=sqlalchemy' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+# sed -i '969 c\
+ #   engine=mysql' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ #sed -i '970 c\
+ #   options={"url": "mysql://admin:securepass@127.0.0.1:3306/hue"}' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1366 c\
     auth_username=admin' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1367 c\

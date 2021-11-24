@@ -71,6 +71,14 @@ echo '
   <name>hadoop.proxyuser.hue.groups</name>
   <value>*</value>
 </property>
+<property>
+  <name>hadoop.proxyuser.hbase.hosts</name>
+  <value>*</value>
+</property>
+<property>
+  <name>hadoop.proxyuser.hbase.groups</name>
+  <value>*</value>
+</property>
 </configuration> 
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml
 

@@ -64,6 +64,8 @@ sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql
     name=hue' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1267 c\
     hive_server_host=127.0.0.1' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1270 c\
+    hive_server_port=10000' /usr/share/hue/desktop/conf/pseudo-distributed.ini 
  sed -i '1648 c\
     solr_url=http://127.0.0.1:8983/solr/' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1393 c\
@@ -84,5 +86,9 @@ sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql
     auth_username=admin' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1367 c\
     auth_password=securepass' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1625 c\
+    hbase_clusters=(Cluster|127.0.0.1:9090)' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '1628 c\
+    hbase_conf_dir=/home/hdoop/hbase/conf' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
 

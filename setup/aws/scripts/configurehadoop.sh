@@ -27,6 +27,7 @@ export SPARK_HOME=/home/hdoop/spark
 export PIG_HOME=/home/hdoop/pig
 export PATH=$PATH:$PIG_HOME/bin
 export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
+export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP=true
 ' >> .bashrc
 
 

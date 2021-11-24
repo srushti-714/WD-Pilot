@@ -12,6 +12,7 @@ cd /home/hdoop
 wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz -P /home/hdoop
 wget https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz -P /home/hdoop
 wget https://downloads.apache.org/hbase/2.4.8/hbase-2.4.8-bin.tar.gz -P /home/hdoop
+wget https://downloads.apache.org/oozie/5.2.1/oozie-5.2.1.tar.gz -P /home/hdoop
 wget https://downloads.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz -P /home/hdoop
 wget  https://downloads.apache.org/pig/pig-0.17.0/pig-0.17.0.tar.gz -P /home/hdoop
 

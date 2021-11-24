@@ -88,7 +88,7 @@ cd /home/hdoop/oozie-5.2.1/distro/target/oozie-5.2.1-distro
 mv oozie-5.2.1 /home/hdoop/oozie
 cd /home/hdoop/oozie
 rm lib/guava-11.0.2.jar
-./bin/oozie-setup.sh
+#./bin/oozie-setup.sh
 
 
 ##Install HBase
@@ -109,8 +109,8 @@ mv pig-0.17.0 pig
 /home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
 /home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh
 /home/hdoop/hbase/bin/start-hbase.sh
-cd /home/hdoop/oozie
-./bin/oozied.sh start
+#cd /home/hdoop/oozie
+#./bin/oozied.sh start
 
 ## Start Hive
 cd /home/hdoop/apache-hive-3.1.2-bin

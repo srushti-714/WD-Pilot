@@ -187,7 +187,7 @@ cp hive-default.xml.template hive-site.xml
 
 #sed '85 a       </description>' hive-site.xml
 sed -i '143 c\
-    <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml
+    <value>/tmp/mydir/test</value>' hive-site.xml
 
 sed -i '148 c\
     <value>/tmp/mydir/${hive.session.id}_resources</value>' hive-site.xml

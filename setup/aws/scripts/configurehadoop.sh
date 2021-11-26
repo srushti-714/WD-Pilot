@@ -46,7 +46,7 @@ echo '
 </property>
 <property>
   <name>fs.default.name</name>
-  <value>hdfs://127.0.0.1:9000</value>
+  <value>hdfs://0.0.0.0:9000</value>
 </property>
 <property>
   <name>hadoop.proxyuser.hdoop.groups</name>
@@ -187,7 +187,7 @@ cp hive-default.xml.template hive-site.xml
 
 #sed '85 a       </description>' hive-site.xml
 sed -i '143 c\
-    <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml
+    <value>/tmp/mydir/${user.name}</value>' hive-site.xml
 
 sed -i '148 c\
     <value>/tmp/mydir/${hive.session.id}_resources</value>' hive-site.xml
@@ -211,7 +211,7 @@ sed -i '1127 c\
 	    <value>admin</value>' hive-site.xml
     
 sed -i '1846 c\
-    <value>/tmp/mydir/${system:user.name}</value>' hive-site.xml
+    <value>/tmp/mydir/${user.name}</value>' hive-site.xml
 
 sed -i '3068 c\
     <value>true</value>' hive-site.xml

@@ -104,6 +104,14 @@ echo '
   <name>dfs.webhdfs.enabled</name>
   <value>true</value>
 </property>
+<property>
+<name>dfs.permissions</name>
+<value>true</value>
+</property>
+<property>
+        <name>dfs.namenode.acls.enabled</name>
+        <value>true</value>
+</property>
 </configuration>
 ' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml
 

@@ -110,5 +110,11 @@ sed -i 's/## name=mysqldb/[[[mysql]]]\nnice_name=mysqldb\nname=hue\nengine=mysql
     hbase_clusters=(Cluster|127.0.0.1:9090)' /usr/share/hue/desktop/conf/pseudo-distributed.ini
  sed -i '1628 c\
     hbase_conf_dir=/home/hdoop/hbase/conf' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '973 c\
+    [[[hive]]]' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '974 c\
+    name=Hive' /usr/share/hue/desktop/conf/pseudo-distributed.ini
+ sed -i '975 c\
+    interface=hiveserver2' /usr/share/hue/desktop/conf/pseudo-distributed.ini
 
 

@@ -25,7 +25,7 @@ cd /usr/share/hue
 curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER}.tgz
 tar xvf solr-${LATEST_VER}.tgz
 cd solr-${LATEST_VER}/bin/
-nohup ./install_solr_service.sh /usr/share/hue/solr-${LATEST_VER}.tgz  > /dev/null 2>&1 &
+nohup ./install_solr_service.sh /usr/share/hue/solr-${LATEST_VER}.tgz  > /dev/null 2>/home/ubuntu/tmplogsolrinstall.txt &
 
 
 # Run the hue server in the background and make it available on port 8000
@@ -39,7 +39,7 @@ build/env/bin/pip install mysql-python
 #build/env/bin/pip install PyAthena
 #build/env/bin/pip install snowflake-sqlalchemy
 #build/env/bin/pip install sqlalchemy-solr
-nohup ./build/env/bin/hue runserver 0.0.0.0:8000   > /dev/null 2>/home/ubuntu/tmplog007.txt &
+nohup ./build/env/bin/hue runserver 0.0.0.0:8000   > /dev/null 2>/home/ubuntu/tmploghuerun.txt &
 source ./build/env/bin/activate
 build/env/bin/hue syncdb --noinput
 build/env/bin/hue migrate

@@ -401,84 +401,84 @@
         }
       }
     },
-        "MyTable": {
-            "Type": "AWS::Glue::Table",
-                "Properties": {
-                "CatalogId": {
-                    "Ref": "AWS::AccountId"
-                },
-                "DatabaseName": {
-                    "Ref": "MyDatabase"
-                },
-                "TableInput": {
-                    "Name": "gluetable"
-                }
-            }
+    "MyTable": {
+      "Type": "AWS::Glue::Table",
+      "Properties": {
+        "CatalogId": {
+          "Ref": "AWS::AccountId"
         },
-        "ScheduledJobTrigger": {
-            "Type": "AWS::Glue::Trigger",
-                "Properties": {
-                "Type": "SCHEDULED",
-                    "Description": "DESCRIPTION_SCHEDULED",
-                        "Schedule": "cron(0 */2 * * ? *)",
-                            "Actions": [
-                                {
-                                    "JobName": "prod-job2"
-                                },
-                                {
-                                    "JobName": "prod-job3",
-                                    "Arguments": {
-                                        "job-bookmark-option": "job-bookmark-enable"
-                                    }
-                                }
-                            ],
-                                "Name": "prod-trigger1-scheduled"
-            }
+        "DatabaseName": {
+          "Ref": "MyDatabase"
         },
-        "MyDatabase": {
-            "Type": "AWS::Glue::Database",
-                "Properties": {
-                "CatalogId": {
-                    "Ref": "AWS::AccountId"
-                },
-                "DatabaseInput": {
-                    "Name": "dbcrawler",
-                        "Description": "TestDatabaseDescription",
-                            "LocationUri": "TestLocationUri",
-                                "Parameters": {
-                        "key1": "value1",
-                            "key2": "value2"
-                    }
-                }
-            }
-        },
-        "MyClassifier": {
-            "Type": "AWS::Glue::Classifier",
-                "Properties": {
-                "GrokClassifier": {
-                    "Name": "CrawlerClassifier",
-                        "Classification": "wikiData",
-                            "GrokPattern": "%{NOTSPACE:language} %{NOTSPACE:page_title} %{NUMBER:hits:long} %{NUMBER:retrieved_size:long}"
-                }
-            }
-        },
-        "workgroupA": {
-            "Type": "AWS::Athena::WorkGroup",
-                "Properties": {
-                "Name": "workgroupA",
-                    "RecursiveDeleteOption": true,
-                        "WorkGroupConfiguration": {
-                    "PublishCloudWatchMetricsEnabled": true
-                }
-            }
-        },
-        "workgroupB": {
-            "Type": "AWS::Athena::WorkGroup",
-                "Properties": {
-                "Name": "workgroupB",
-                    "RecursiveDeleteOption": true
-            }
+        "TableInput": {
+          "Name": "gluetable"
         }
+      }
+    },
+    "ScheduledJobTrigger": {
+      "Type": "AWS::Glue::Trigger",
+      "Properties": {
+        "Type": "SCHEDULED",
+        "Description": "DESCRIPTION_SCHEDULED",
+        "Schedule": "cron(0 */2 * * ? *)",
+        "Actions": [
+          {
+            "JobName": "prod-job2"
+          },
+          {
+            "JobName": "prod-job3",
+            "Arguments": {
+              "job-bookmark-option": "job-bookmark-enable"
+            }
+          }
+        ],
+        "Name": "prod-trigger1-scheduled"
+      }
+    },
+    "MyDatabase": {
+      "Type": "AWS::Glue::Database",
+      "Properties": {
+        "CatalogId": {
+          "Ref": "AWS::AccountId"
+        },
+        "DatabaseInput": {
+          "Name": "dbcrawler",
+          "Description": "TestDatabaseDescription",
+          "LocationUri": "TestLocationUri",
+          "Parameters": {
+            "key1": "value1",
+            "key2": "value2"
+          }
+        }
+      }
+    },
+    "MyClassifier": {
+      "Type": "AWS::Glue::Classifier",
+      "Properties": {
+        "GrokClassifier": {
+          "Name": "CrawlerClassifier",
+          "Classification": "wikiData",
+          "GrokPattern": "%{NOTSPACE:language} %{NOTSPACE:page_title} %{NUMBER:hits:long} %{NUMBER:retrieved_size:long}"
+        }
+      }
+    },
+    "workgroupA": {
+      "Type": "AWS::Athena::WorkGroup",
+      "Properties": {
+        "Name": "workgroupA",
+        "RecursiveDeleteOption": true,
+        "WorkGroupConfiguration": {
+          "PublishCloudWatchMetricsEnabled": true
+        }
+      }
+    },
+    "workgroupB": {
+      "Type": "AWS::Athena::WorkGroup",
+      "Properties": {
+        "Name": "workgroupB",
+        "RecursiveDeleteOption": true
+      }
+    }
   },
 
   "Outputs": {
@@ -541,13 +541,13 @@
         "Fn::GetAtt": ["EC2Instance", "PublicDnsName"]
       }
     },
-    "Hue Username": {
+    "HueUsername": {
       "Description": "username of the newly created EC2 instance",
 
       "Value": "hdoop"
     },
 
-    "Hue Password": {
+    "HuePassword": {
       "Description": "Password of the newly created EC2 instance",
 
       "Value": "hdoop"

@@ -18,6 +18,45 @@
       "Description": "DeploymentID value",
 
       "Type": "String"
+    },
+    "TerminationProtected": {
+        "Type": "String",
+        "Default": "false"
+    },
+    "EMRClusterName": {
+        "Description": "Name of the cluster",
+        "Type": "String",
+        "Default": "emrcluster"
+    },
+    "KeyName": {
+        "Description": "Must be an existing Keyname",
+        "Type": "String",
+        "Default": "WANDisco-key"
+    },
+    "MasterInstanceType": {
+        "Description": "Instance type to be used for the master instance.",
+        "Type": "String",
+        "Default": "m4.large"
+    },
+    "CoreInstanceType": {
+        "Description": "Instance type to be used for core instances.",
+        "Type": "String",
+        "Default": "m4.large"
+    },
+    "NumberOfCoreInstances": {
+        "Description": "Must be a valid number",
+        "Type": "Number",
+        "Default": 1
+    },
+    "ReleaseLabel": {
+        "Description": "Must be a valid EMR release  version",
+        "Default": "emr-5.30.1",
+        "Type": "String"
+    },
+    "CheckAcknowledgement": {
+        "Description": "check ack value",
+        "Type": "String",
+        "Default": "TRUE"
     }
   },
 
@@ -402,82 +441,194 @@
       }
     },
     "MyTable": {
-      "Type": "AWS::Glue::Table",
-      "Properties": {
-        "CatalogId": {
-          "Ref": "AWS::AccountId"
-        },
-        "DatabaseName": {
-          "Ref": "MyDatabase"
-        },
-        "TableInput": {
-          "Name": "gluetable"
+        "Type": "AWS::Glue::Table",
+        "Properties": {
+            "CatalogId": {
+                "Ref": "AWS::AccountId"
+            },
+            "DatabaseName": {
+                "Ref": "MyDatabase"
+            },
+            "TableInput": {
+                "Name": "gluetable"
+            }
         }
-      }
     },
     "ScheduledJobTrigger": {
-      "Type": "AWS::Glue::Trigger",
-      "Properties": {
-        "Type": "SCHEDULED",
-        "Description": "DESCRIPTION_SCHEDULED",
-        "Schedule": "cron(0 */2 * * ? *)",
-        "Actions": [
-          {
-            "JobName": "prod-job2"
-          },
-          {
-            "JobName": "prod-job3",
-            "Arguments": {
-              "job-bookmark-option": "job-bookmark-enable"
-            }
-          }
-        ],
-        "Name": "prod-trigger1-scheduled"
-      }
+        "Type": "AWS::Glue::Trigger",
+        "Properties": {
+            "Type": "SCHEDULED",
+            "Description": "DESCRIPTION_SCHEDULED",
+            "Schedule": "cron(0 */2 * * ? *)",
+            "Actions": [
+                {
+                    "JobName": "prod-job2"
+                },
+                {
+                    "JobName": "prod-job3",
+                    "Arguments": {
+                        "job-bookmark-option": "job-bookmark-enable"
+                    }
+                }
+            ],
+            "Name": "prod-trigger1-scheduled"
+        }
     },
     "MyDatabase": {
-      "Type": "AWS::Glue::Database",
-      "Properties": {
-        "CatalogId": {
-          "Ref": "AWS::AccountId"
-        },
-        "DatabaseInput": {
-          "Name": "dbcrawler",
-          "Description": "TestDatabaseDescription",
-          "LocationUri": "TestLocationUri",
-          "Parameters": {
-            "key1": "value1",
-            "key2": "value2"
-          }
+        "Type": "AWS::Glue::Database",
+        "Properties": {
+            "CatalogId": {
+                "Ref": "AWS::AccountId"
+            },
+            "DatabaseInput": {
+                "Name": "dbcrawler",
+                "Description": "TestDatabaseDescription",
+                "LocationUri": "TestLocationUri",
+                "Parameters": {
+                    "key1": "value1",
+                    "key2": "value2"
+                }
+            }
         }
-      }
     },
     "MyClassifier": {
-      "Type": "AWS::Glue::Classifier",
-      "Properties": {
-        "GrokClassifier": {
-          "Name": "CrawlerClassifier",
-          "Classification": "wikiData",
-          "GrokPattern": "%{NOTSPACE:language} %{NOTSPACE:page_title} %{NUMBER:hits:long} %{NUMBER:retrieved_size:long}"
+        "Type": "AWS::Glue::Classifier",
+        "Properties": {
+            "GrokClassifier": {
+                "Name": "CrawlerClassifier",
+                "Classification": "wikiData",
+                "GrokPattern": "%{NOTSPACE:language} %{NOTSPACE:page_title} %{NUMBER:hits:long} %{NUMBER:retrieved_size:long}"
+            }
         }
-      }
     },
     "workgroupA": {
-      "Type": "AWS::Athena::WorkGroup",
-      "Properties": {
-        "Name": "workgroupA",
-        "RecursiveDeleteOption": true,
-        "WorkGroupConfiguration": {
-          "PublishCloudWatchMetricsEnabled": true
+        "Type": "AWS::Athena::WorkGroup",
+        "Properties": {
+            "Name": "workgroupA",
+            "RecursiveDeleteOption": true,
+            "WorkGroupConfiguration": {
+                "PublishCloudWatchMetricsEnabled": true
+            }
         }
-      }
     },
     "workgroupB": {
-      "Type": "AWS::Athena::WorkGroup",
-      "Properties": {
-        "Name": "workgroupB",
-        "RecursiveDeleteOption": true
-      }
+        "Type": "AWS::Athena::WorkGroup",
+        "Properties": {
+            "Name": "workgroupB",
+            "RecursiveDeleteOption": true
+        }
+    },
+    "EMRCluster": {
+        "DependsOn": [
+            "EMRClusterServiceRole",
+            "EMRClusterinstanceProfileRole",
+            "EMRClusterinstanceProfile"
+        ],
+        "Type": "AWS::EMR::Cluster",
+        "Properties": {
+            "Instances": {
+                "Ec2KeyName": {
+                    "Ref": "KeyName"
+                },
+                "Ec2SubnetId": {
+                    "Ref": "mySubnet"
+                },
+                "MasterInstanceGroup": {
+                    "InstanceCount": 1,
+                    "InstanceType": {
+                        "Ref": "MasterInstanceType"
+                    },
+                    "Market": "ON_DEMAND",
+                    "Name": "Master"
+                },
+                "CoreInstanceGroup": {
+                    "InstanceCount": {
+                        "Ref": "NumberOfCoreInstances"
+                    },
+                    "InstanceType": {
+                        "Ref": "CoreInstanceType"
+                    },
+                    "Market": "ON_DEMAND",
+                    "Name": "Core"
+                },
+                "TerminationProtected": false
+            },
+            "VisibleToAllUsers": true,
+            "JobFlowRole": {
+                "Ref": "EMRClusterinstanceProfile"
+            },
+            "ReleaseLabel": {
+                "Ref": "ReleaseLabel"
+            },
+            "Name": {
+                "Ref": "EMRClusterName"
+            },
+            "AutoScalingRole": "EMR_AutoScaling_DefaultRole",
+            "ServiceRole": {
+                "Ref": "EMRClusterServiceRole"
+            }
+        }
+    },
+    "EMRClusterServiceRole": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": [
+                                "elasticmapreduce.amazonaws.com"
+                            ]
+                        },
+                        "Action": [
+                            "sts:AssumeRole"
+                        ]
+                    }
+                ]
+            },
+            "ManagedPolicyArns": [
+                "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
+            ],
+            "Path": "/"
+        }
+    },
+    "EMRClusterinstanceProfileRole": {
+        "Type": "AWS::IAM::Role",
+        "Properties": {
+            "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                    {
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": [
+                                "ec2.amazonaws.com"
+                            ]
+                        },
+                        "Action": [
+                            "sts:AssumeRole"
+                        ]
+                    }
+                ]
+            },
+            "ManagedPolicyArns": [
+                "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
+            ],
+            "Path": "/"
+        }
+    },
+    "EMRClusterinstanceProfile": {
+        "Type": "AWS::IAM::InstanceProfile",
+        "Properties": {
+            "Path": "/",
+            "Roles": [
+                {
+                    "Ref": "EMRClusterinstanceProfileRole"
+                }
+            ]
+        }
     }
   },
 

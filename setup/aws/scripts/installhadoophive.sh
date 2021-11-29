@@ -121,4 +121,4 @@ echo "End"
 
 /home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
 /home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh
-/home/hdoop/hbase/bin/hbase thrift start
+nohup /home/hdoop/hbase/bin/hbase thrift start > /dev/null 2>&1 &

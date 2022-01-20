@@ -20,7 +20,7 @@ export PATH=$PATH:$PIG_HOME/bin
 export PIG_CLASSPATH=$HADOOP_HOME/etc/hadoop
 export HBASE_DISABLE_HADOOP_CLASSPATH_LOOKUP=true
 
-export LATEST_VER="8.11.0"
+export LATEST_VER="8.11.1"
 cd /usr/share/hue
 curl -O https://downloads.apache.org/lucene/solr/${LATEST_VER}/solr-${LATEST_VER}.tgz
 tar xvf solr-${LATEST_VER}.tgz

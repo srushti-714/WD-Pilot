@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /home/hdoop
-tar xzf hadoop-3.2.2.tar.gz
+tar xzf hadoop-3.3.4.tar.gz
 
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
@@ -9,7 +9,7 @@ chmod 0600 ~/.ssh/authorized_keys
 
 echo ' 
 #Hadoop Related Options
-export HADOOP_HOME=/home/hdoop/hadoop-3.2.2
+export HADOOP_HOME=/home/hdoop/hadoop-3.3.4
 export HADOOP_INSTALL=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
 export HADOOP_COMMON_HOME=$HADOOP_HOME
@@ -23,9 +23,9 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 
 #source .bashrc
 
-echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hadoop-env.sh
+echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> /home/hdoop/hadoop-3.3.4/etc/hadoop/hadoop-env.sh
 cd /home/hdoop
-head -n -1 hadoop-3.2.2/etc/hadoop/core-site.xml > tmp.txt && mv tmp.txt hadoop-3.2.2/etc/hadoop/core-site.xml
+head -n -1 hadoop-3.3.4/etc/hadoop/core-site.xml > tmp.txt && mv tmp.txt hadoop-3.3.4/etc/hadoop/core-site.xml
 
 
 #Edit core-site.xml file
@@ -39,9 +39,9 @@ echo '
   <value>hdfs://127.0.0.1:9000</value>
 </property>
 </configuration> 
-' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/core-site.xml
+' >> /home/hdoop/hadoop-3.3.4/etc/hadoop/core-site.xml
 
-head -n -1 /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml
+head -n -1 /home/hdoop/hadoop-3.3.4/etc/hadoop/hdfs-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.3.4/etc/hadoop/hdfs-site.xml
 
 ## Edit hdfs-site.xml file
 
@@ -59,9 +59,9 @@ echo '
   <value>1</value>
 </property>
 </configuration>
-' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/hdfs-site.xml
+' >> /home/hdoop/hadoop-3.3.4/etc/hadoop/hdfs-site.xml
 
-head -n -1 /home/hdoop/hadoop-3.2.2/etc/hadoop/mapred-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.2.2/etc/hadoop/mapred-site.xml
+head -n -1 /home/hdoop/hadoop-3.3.4/etc/hadoop/mapred-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.3.4/etc/hadoop/mapred-site.xml
 
 #Edit mapred-site.xml file
 echo '
@@ -70,10 +70,10 @@ echo '
   <value>yarn</value> 
 </property> 
 </configuration> 
-' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/mapred-site.xml
+' >> /home/hdoop/hadoop-3.3.4/etc/hadoop/mapred-site.xml
 
 
-head -n -1 /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
+head -n -1 /home/hdoop/hadoop-3.3.4/etc/hadoop/yarn-site.xml > tmp.txt && mv tmp.txt /home/hdoop/hadoop-3.3.4/etc/hadoop/yarn-site.xml
 
 #Edit yarn-site.xml File
 
@@ -99,5 +99,5 @@ echo '
 <value>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PERPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</value>
 </property>
 </configuration>
-' >> /home/hdoop/hadoop-3.2.2/etc/hadoop/yarn-site.xml
+' >> /home/hdoop/hadoop-3.3.4/etc/hadoop/yarn-site.xml
 

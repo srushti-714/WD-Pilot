@@ -2,7 +2,7 @@
 
 cd /home/hdoop
 #source .bashrc
-export HADOOP_HOME=/home/hdoop/hadoop-3.2.2
+export HADOOP_HOME=/home/hdoop/hadoop-3.3.4
 export HADOOP_INSTALL=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
 export HADOOP_COMMON_HOME=$HADOOP_HOME
@@ -15,5 +15,5 @@ export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
 ssh-keyscan -H localhost >> ~/.ssh/known_hosts
 #exit
 echo -e 'Y' | hdfs namenode -format
-/home/hdoop/hadoop-3.2.2/sbin/start-dfs.sh
-/home/hdoop/hadoop-3.2.2/sbin/start-yarn.sh
+/home/hdoop/hadoop-3.3.4/sbin/start-dfs.sh
+/home/hdoop/hadoop-3.3.4/sbin/start-yarn.sh
